@@ -3,6 +3,6 @@
 ./main
 
 while [ $? == 100 ] ; do
-    echo "Restarting software authentictor."
+    echo "Restarting software authenticator."
     ./main
 done
