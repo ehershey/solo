@@ -91,7 +91,7 @@ pip install -r tools/requirements.txt
 
 Run the Solo application:
 ```bash
-./main
+./tools/test_sw_token.sh # Runs ./main in a loop
 ```
 
 In another shell, you can run client software, for example our tests:
