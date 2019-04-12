@@ -31,8 +31,8 @@ class SoloTests(Tester):
 
         with Test("Test entropy is close to perfect"):
             s = shannon_entropy(entropy)
+            print("Entropy is %.5f bits per byte." % s)
             assert s > 7.98
-        print("Entropy is %.5f bits per byte." % s)
 
         with Test("Test Solo version command"):
             assert len(sc.solo_version()) == 3
