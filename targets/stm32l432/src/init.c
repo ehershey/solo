@@ -108,6 +108,7 @@ void hw_init(int lowfreq)
 #endif
 
     init_rng();
+    init_nrng();
     init_spi();
 
 }
@@ -912,6 +913,17 @@ void init_rng(void)
   LL_RNG_Enable(RNG);
 
 }
+
+void init_nrng(void)
+{
+
+  /* Peripheral clock enable */
+  LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_RNG);
+
+  LL_RNG_Enable(RNG);
+
+}
+
 
 /* SPI1 init function */
 void init_spi(void)

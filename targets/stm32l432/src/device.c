@@ -16,6 +16,7 @@
 #include APP_CONFIG
 #include "flash.h"
 #include "rng.h"
+#include "nrng.h"
 #include "led.h"
 #include "device.h"
 #include "util.h"
@@ -520,6 +521,12 @@ return 0;
 int ctap_generate_rng(uint8_t * dst, size_t num)
 {
     rng_get_bytes(dst, num);
+    return 1;
+}
+
+int ctap_generate_nrng(uint8_t * dst, size_t num)
+{
+    nrng_get_bytes(dst, num);
     return 1;
 }
 

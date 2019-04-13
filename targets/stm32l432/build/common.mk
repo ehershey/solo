@@ -4,7 +4,7 @@ SZ=$(PREFIX)arm-none-eabi-size
 AR=$(PREFIX)arm-none-eabi-ar
 
 DRIVER_LIBS := lib/stm32l4xx_hal_pcd.c lib/stm32l4xx_hal_pcd_ex.c lib/stm32l4xx_ll_gpio.c  \
-       lib/stm32l4xx_ll_rcc.c lib/stm32l4xx_ll_rng.c lib/stm32l4xx_ll_tim.c  \
+       lib/stm32l4xx_ll_rcc.c lib/stm32l4xx_ll_rng.c lib/stm32l4xx_ll_nrng.c lib/stm32l4xx_ll_tim.c  \
 	   lib/stm32l4xx_ll_usb.c lib/stm32l4xx_ll_utils.c lib/stm32l4xx_ll_pwr.c \
 	   lib/stm32l4xx_ll_usart.c lib/stm32l4xx_ll_spi.c
 

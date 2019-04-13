@@ -125,6 +125,7 @@ int main()
     init_millisecond_timer(0);
     init_pwm();
     init_rng();
+    init_nrng();
     usbhid_init();
 
     printf1(TAG_GEN,"init usb\n");

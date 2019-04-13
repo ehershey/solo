@@ -262,6 +262,27 @@ int ctap_generate_rng(uint8_t * dst, size_t num)
     return 1;
 }
 
+int ctap_generate_nrng(uint8_t * dst, size_t num)
+{
+    int ret;
+    printf("generating %d bytes of non random data\n", num);
+    FILE * urand = fopen("./notrandom","r");
+    // FILE * urand = fopen("/dev/urandom","r");
+    if (urand == NULL)
+    {
+        perror("fopen");
+        exit(1);
+    }
+    if (fread(dst, 1, num, urand) != num)
+    {
+        perror("fread");
+    }
+
+    fclose(urand);
+
+    return 1;
+}
+
 
 const char * state_file = "authenticator_state.bin";
 const char * backup_file = "authenticator_state2.bin";

@@ -29,6 +29,7 @@
 #include APP_CONFIG
 #include "flash.h"
 #include "rng.h"
+#include "nrng.h"
 #include "led.h"
 #include "device.h"
 #include "util.h"

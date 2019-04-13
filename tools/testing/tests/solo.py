@@ -34,6 +34,19 @@ class SoloTests(Tester):
             print("Entropy is %.5f bits per byte." % s)
             assert s > 7.98
 
+        total = 1024 * 16
+        with Test("Gathering %d non-random bytes..." % total):
+            entropy = b""
+            while len(entropy) < total:
+                entropy += sc.get_nrng()
+
+        with Test("Test entropy is far from perfect"):
+            s = shannon_entropy(entropy)
+            print("Entropy is %.5f bits per byte." % s)
+            assert s < 7.98
+
+
+
         with Test("Test Solo version command"):
             assert len(sc.solo_version()) == 3
 

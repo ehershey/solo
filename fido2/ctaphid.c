@@ -728,6 +728,21 @@ uint8_t ctaphid_handle_packet(uint8_t * pkt_raw)
             ctaphid_write(&wb, NULL, 0);
             is_busy = 0;
         break;
+        case CTAPHID_GETNRNG:
+            printf1(TAG_HID,"CTAPHID_GETNRNG\n");
+            ctap_response_init(&ctap_resp);
+            ctaphid_write_buffer_init(&wb);
+            wb.cid = cid;
+            wb.cmd = CTAPHID_GETNRNG;
+            wb.bcnt = ctap_buffer[0];
+            if (!wb.bcnt)
+                wb.bcnt = 57;
+            memset(ctap_buffer,0,wb.bcnt);
+            ctap_generate_nrng(ctap_buffer, wb.bcnt);
+            ctaphid_write(&wb, &ctap_buffer, wb.bcnt);
+            ctaphid_write(&wb, NULL, 0);
+            is_busy = 0;
+        break;
 #endif
 #if defined(SOLO_HACKER) && (DEBUG_LEVEL > 0) && (!IS_BOOTLOADER == 1)
         case CTAPHID_PROBE:
